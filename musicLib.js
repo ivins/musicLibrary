@@ -1,3 +1,5 @@
+//Used this for some practice with JS prototypes.
+
 function Library(libName, creator) {
   this.libName = libName;
   this.creator = creator;
@@ -32,10 +34,12 @@ Playlist.prototype.totalDuration = function() {
   return duration;
 }
 
+// Use this to add a playlist to a library
 Library.prototype.addPlaylist = function(name) {
   this.playlists.push(new Playlist(name));
 }
 
+// Use this to add a track to a specific playlist
 Library.prototype.addTrack = function(playlist, title, rating, length) {
   this.playlists.forEach((item, ind)=>{
     if (item.name === playlist) {
@@ -43,7 +47,7 @@ Library.prototype.addTrack = function(playlist, title, rating, length) {
     }
   })
 }
-
+//Use this to look up a specific playlist's rating
 Library.prototype.playlistRating = function(playlistName) {
   let rating = 0;
   this.playlists.forEach((item, ind)=>{
@@ -55,6 +59,7 @@ Library.prototype.playlistRating = function(playlistName) {
   return rating;
 }
 
+// Use this to check a playlist's duration
 Library.prototype.playlistDuration = function(playlistName) {
   let duration = 0;
   this.playlists.forEach((item, ind)=>{
